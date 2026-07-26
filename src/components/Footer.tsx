@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-[#121212] text-gray-300 font-sans pt-16 pb-12 border-t border-gray-800">
+    <footer id="contact" className="relative w-full bg-[#121212] text-gray-300 font-sans pt-16 pb-12 border-t border-gray-800">
       <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* TOP SECTION: Logo, Contact Info, Socials & QR Code */}
