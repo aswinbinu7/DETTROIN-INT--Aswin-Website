@@ -11,13 +11,40 @@ export default function LoginPage() {
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setTimeout(() => {
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: username, // using your username state as the email field
+          password: password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Invalid credentials.");
+      }
+
+      // Login successful! Save the token and redirect or notify user
+      console.log("Token received:", data.token);
+      localStorage.setItem("token", data.token);
+      alert("Login successful!");
+      
+      // Example redirect: router.push('/dashboard');
+
+    } catch (err: any) {
+      alert(err.message || "Something went wrong during login.");
+    } finally {
       setIsLoading(false);
-      alert("Login functionality connected successfully!");
-    }, 1000);
+    }
   };
 
   return (
