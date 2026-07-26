@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import Footer from "./Footer";
 
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -139,6 +140,14 @@ export default function HomePage() {
                   such as an equipped library, theatre, science laboratories and
                   sports for students, so they excel in academics and enhance
                   their co-curricular skills and talents.
+                </p>
+
+                <p className="text-gray-700 leading-relaxed md:text-[1.05rem] font-medium mt-4">
+                  The school is committed to the cause of promoting sound moral values, 
+                  encouraging a scientific temperament and developing the overall 
+                  personality of its students. Regular counselling of students gives 
+                  them an insight into the competitive world ahead and encourages 
+                  students to build a healthy spirit of competition.
                 </p>
 
                 <p className="text-gray-700 leading-relaxed md:text-[1.05rem] font-medium mt-4">
@@ -296,6 +305,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </main>
+
+    
   );
 }

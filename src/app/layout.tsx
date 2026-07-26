@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bishop Dunne Catholic School", // Updated to match your project
+  title: "K I S", // Updated to match your project
   description: "Unlock Potential",
 };
 
