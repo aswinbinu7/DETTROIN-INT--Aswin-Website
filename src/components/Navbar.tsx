@@ -67,7 +67,7 @@ export default function Navbar() {
 
           {/* RIGHT: Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center space-x-6 lg:space-x-8">
-            {['About Us', 'Academics', 'Admission', 'Contact Us', 'Join Us'].map((item) => {
+            {['About Us', 'Academics', 'Admission', 'Contact Us', 'Login'].map((item) => {
               const isContact = item === 'Contact Us';
               const targetHref = isContact ? '#contact' : `/${item.toLowerCase().replace(' ', '-')}`;
 

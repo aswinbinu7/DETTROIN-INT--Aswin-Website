@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import Footer from "./Footer";
 import Features from "./Features";
+import Link from "next/link";
 
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -161,9 +162,11 @@ export default function HomePage() {
                 </p>
 
                 <div className="mt-8 flex items-center w-full max-w-4xl">
+                  <Link href="about-us">
                   <button className="px-8 py-3 border border-[#c8102e] text-[#c8102e] font-bold uppercase tracking-wide text-xs hover:bg-[#c8102e] hover:text-white transition-colors duration-300 whitespace-nowrap bg-white">
                     Learn More
                   </button>
+                  </Link>
                   <div className="h-[1px] bg-[#e5e7eb] flex-grow ml-4"></div>
                 </div>
               </motion.div>
