@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import Footer from "./Footer";
+import Features from "./Features";
 
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -305,6 +306,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Features />
 
       <Footer />
     </main>
