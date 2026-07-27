@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import SplashScreen from "@/SplashScreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,8 @@ export default function RootLayout({
     >
       {/* Removed h-screen, w-screen, and overflow-hidden */}
       <body className="flex flex-col min-h-screen m-0 p-0">
+        {/* Render the global splash screen */}
+        <SplashScreen />
         <Navbar />
         {children}
       </body>
