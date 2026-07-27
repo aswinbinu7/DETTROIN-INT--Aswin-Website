@@ -44,7 +44,7 @@ export default function HomePage() {
             fill
             priority
             sizes="100vw"
-            className="object-fill"
+            className="object-cover object-left lg-object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
         </div>
