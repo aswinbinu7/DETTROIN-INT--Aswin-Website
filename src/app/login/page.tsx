@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import api from "@/utils/api";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -16,32 +17,27 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: username, // using your username state as the email field
-          password: password,
-        }),
+      // 2. Just pass the route! The base URL is handled automatically by api.ts
+      const response = await api.post("/api/auth/login", {
+        email: username,
+        password: password,
       });
 
-      const data = await response.json();
+      const data = response.data;
 
-      if (!response.ok) {
-        throw new Error(data.message || "Invalid credentials.");
-      }
-
-      // Login successful! Save the token and redirect or notify user
       console.log("Token received:", data.token);
       localStorage.setItem("token", data.token);
       alert("Login successful!");
       
-      // Example redirect: router.push('/dashboard');
+      // router.push('/dashboard');
 
     } catch (err: any) {
-      alert(err.message || "Something went wrong during login.");
+      const errorMessage = 
+        err.response?.data?.message || 
+        err.message || 
+        "Something went wrong during login.";
+        
+      alert(errorMessage);
     } finally {
       setIsLoading(false);
     }
